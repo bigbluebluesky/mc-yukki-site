@@ -1,0 +1,65 @@
+/*
+body {
+  background: #1e1f22;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+  */
+
+.discord-banner {
+  background: linear-gradient(135deg, #5865F2, #4e54c8);
+  color: white;
+  padding: 20px 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  max-width: 400px;
+  margin: 0 auto; /* ← 横中央に配置する */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.discord-banner:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+}
+
+.discord-logo {
+  width: 60px;
+  margin-bottom: 10px;
+}
+
+.banner-title {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.banner-description {
+  font-size: 1em;
+  margin-bottom: 20px;
+}
+
+.join-btn {
+  background-color: white;
+  color: #5865F2;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.join-btn:hover {
+  background-color: #dcdcdc;
+}
+
+@media (max-width: 500px) {
+  .discord-banner {
+    padding: 15px 20px;
+  }
+}

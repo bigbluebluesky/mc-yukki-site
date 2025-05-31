@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Yukkiマイクラサーバー</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="bg-light">
 
@@ -26,6 +27,7 @@
               <li class="list-group-item"><strong>バージョン：</strong> 1.21.3</li>
               <li class="list-group-item"><strong>最大人数：</strong> 5人</li>
               <li class="list-group-item"><strong>サーバー種別：</strong> サバイバル / PvE / 経済</li>
+              <li class="list-group-item"><strong>ステータス：</strong><p id="status">読み込み中...</p></li>
             </ul>
           </div>
         </div>
@@ -51,8 +53,13 @@
         <div class="card text-center">
           <div class="card-body">
             <h5 class="card-title">💬 Discordに参加しよう！</h5>
-            <p class="card-text">最新情報やイベント告知、プレイヤーとの交流はこちらから！</p>
-            <a href="https://discord.gg/p5bSZgvngE" class="btn btn-primary" target="_blank">Discordに参加する</a>
+            <br>
+            <div class="discord-banner">
+              <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" alt="Discord Logo" class="discord-logo">
+              <div class="banner-title">サーバー名：mc-yukki</div>
+              <div class="banner-description">最新情報やイベント告知、プレイヤーとの交流はこちらから！</div>
+              <a href="https://discord.gg/p5bSZgvngE" class="join-btn" target="_blank">今すぐ参加</a>
+            </div>
           </div>
         </div>
       </div>
@@ -65,5 +72,19 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    async function checkServer() {
+      const response = await fetch("https://api.mcsrvstat.us/3/selected-copying.gl.joinmc.link");
+      const data = await response.json();
+      if (data.online) {
+        document.getElementById("status").innerText = `🟢 オンライン - ${data.players.online}人プレイ中`;
+      } else {
+        document.getElementById("status").innerText = "🔴 オフライン";
+      }
+    }
+
+    checkServer();
+    setInterval(checkServer, 10000); // 10秒ごとに更新
+  </script>
 </body>
 </html>
